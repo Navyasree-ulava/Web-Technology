@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, h2 {
+            color:rgb(243, 62, 42);
+        }
+        button {
+            border-radius: 10%;
+            background-color:salmon;
+            margin: 20px;
+            height:30px;
+            width:65px;
+            color:white;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1><i>See your Age status by entering the age</i></h1>
+        <i>Enter your Age: </i><input type="text" id="ageInput">
+        <br>
+        <br>
+        <button id="btn">submit</button>
+        <br>
+        <br>
+        <h2 id="stat"></h2>
+    </div>
+    <script>
+        let btn = document.querySelector('#btn');
+        // we can submit any  number of times and get output through event listener
+        btn.addEventListener('click', () => {
+        let input = document.querySelector('#ageInput');
+        let age = Number(input.value);
+        let status ='';
+        if (age < 5) {
+        status = 'Young';
+        } else if (age >= 5 && age <= 15) {
+        status = 'Child';
+        } else if (age > 15 && age <= 18) {
+        status = 'Teenage';
+        } else if(age>18 && age<40){
+            status = 'Adult';
+        }else{
+            status = 'Senior Citizen';
+        }
+        let ele = document.querySelector('#stat');
+            ele.innerHTML = status;
+        });
+
+    </script>
+</body>
+</html>

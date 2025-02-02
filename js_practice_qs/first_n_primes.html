@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate First n Prime Numbers</title>
+    <style>
+        button {
+            border: 2px solid black;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input {
+            border: 2px solid black;
+            padding: 5px;
+            width: 250px;
+        }
+        h2 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generate First n Prime Numbers</h1>
+    
+    <label>Enter the value of n:</label>
+    <input type="number" id="nInput" placeholder="Example: 10">
+    
+    <button id="btn">Generate Primes</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        let btn = document.querySelector('#btn');
+
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        btn.addEventListener('click', () => {
+            let n = Number(document.querySelector('#nInput').value.trim());
+
+            if (!n || n <= 0) {
+                document.querySelector('#result').innerHTML = `<span style="color:red">Please enter a valid positive number!</span>`;
+                return;
+            }
+
+            let primes = [];
+            let num = 2; // Start checking from 2
+
+            while (primes.length < n) {
+                if (isPrime(num)) {
+                    primes.push(num);
+                }
+                num++;
+            }
+
+            document.querySelector('#result').innerHTML = `First ${n} Prime Numbers: <b>${primes.join(', ')}</b>`;
+        });
+
+    </script>
+
+</body>
+</html>

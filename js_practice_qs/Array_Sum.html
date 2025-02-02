@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Array Numbers</title>
+    <style>
+        button {
+            border: 2px solid black;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input {
+            border: 2px solid black;
+            padding: 5px;
+            width: 250px;
+        }
+        h2 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Find Sum of All Numbers in an Array</h1>
+    
+    <label>Enter numbers separated by commas:</label>
+    <input type="text" id="arrayInput" placeholder="Example: 10, 20, 30, 40">
+    
+    <button id="btn">Calculate Sum</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        let btn = document.querySelector('#btn');
+
+        btn.addEventListener('click', () => {
+            let inputStr = document.querySelector('#arrayInput').value.trim();
+            
+            if (!inputStr) {
+                document.querySelector('#result').innerHTML = `<span style="color:red">Please enter some numbers!</span>`;
+                return;
+            }
+
+            let numbers = inputStr.split(',').map(num => Number(num.trim()));
+
+            // Check for invalid inputs (NaN values)
+            if (numbers.some(isNaN)) {
+                document.querySelector('#result').innerHTML = `<span style="color:red">Invalid input! Please enter only numbers separated by commas.</span>`;
+                return;
+            }
+
+            let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+            document.querySelector('#result').innerHTML = `Sum of the array: <b>${sum}</b>`;
+        });
+
+    </script>
+
+</body>
+</html>

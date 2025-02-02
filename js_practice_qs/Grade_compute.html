@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            border: 2px solid black;
+        }
+        input {
+            border: 2px solid black;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Simple Grade Calculator</h1>
+    <br>
+    Enter Name: <input type="text" id="name">
+    Enter Section: <input type="text" id="section">
+    <br>
+    <h3>Enter the marks obtained in each subject out of 100</h3>
+    Maths: <input type="number" id="maths">
+    Science: <input type="number" id="science">
+    Physics: <input type="number" id="physics">
+    Chemistry: <input type="number" id="chemistry">
+    Social: <input type="number" id="social">
+    <br>
+    <br>
+    <button id="btn">Calculate Grade</button>
+    <br>
+    <br>
+    <h2 id="result"></h2>
+
+    <script>
+
+        let btn = document.querySelector('#btn');
+        let grade = '';
+
+
+        btn.addEventListener('click', () => {
+        let m = Number(document.querySelector('#maths').value) || 0;
+        let s = Number(document.querySelector('#science').value) || 0;
+        let p = Number(document.querySelector('#physics').value) || 0;
+        let c = Number(document.querySelector('#chemistry').value) || 0;
+        let so = Number(document.querySelector('#social').value) || 0;
+        let totalMarks = m + s + p + c + so;
+        let res = totalMarks / 5; 
+
+    if (res >= 80 && res <= 100) {
+        grade = 'A';
+    } else if (res >= 60 && res < 80) {
+        grade = 'B';
+    } else if (res >= 40 && res < 60) {
+        grade = 'C';
+    } else if (res >= 20 && res < 40) {
+        grade = 'D';
+    } else {
+        grade = 'E';
+    }
+    
+    result.innerHTML = 'Grade: '+grade;
+            
+        });
+
+    </script>
+</body>
+</html>

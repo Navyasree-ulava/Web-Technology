@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: aqua;
+            color:red;
+        }
+        div {
+            margin: 10px;
+        }
+        button {
+            border-radius: 10%;
+            background-color:salmon;
+            margin: 20px;
+            height:30px;
+            width:65px;
+            color:white;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <h1><i>Click on the below buttons to change background</i></h1>
+    <div>
+        <button id="b1">Red</button>
+        <button id="b2">Violet</button>
+        <button id="b4">Yellow</button>
+        <button id="b3">black</button>
+        <button id="b5">Default</button>
+    </div>
+        <script>
+            let b1 = document.querySelector('#b1');
+            let b2 = document.querySelector('#b2');
+            let b3 = document.querySelector('#b3');
+            let b4 = document.querySelector('#b4');
+            let b5 = document.querySelector('#b5');
+            let body = document.querySelector('body');
+            b1.onclick = () => {
+                body.style.backgroundColor='red';
+            }
+
+            b2.onclick = () => {
+                body.style.backgroundColor='violet';
+            }
+
+            b3.onclick = () => {
+                body.style.backgroundColor='black';
+            }
+
+            b4.onclick = () => {
+                body.style.backgroundColor='yellow';
+            }
+
+            b5.onclick = () => {
+                body.style.backgroundColor='white';
+            }
+        </script>
+</body>
+</html>

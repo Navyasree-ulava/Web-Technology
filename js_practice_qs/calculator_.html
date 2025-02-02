@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            margin:20px;
+            height:30px;
+            width:60px;
+            border: 2px solid black;
+        }
+        img {
+            height:30px;
+            width:50px;
+        }
+
+        input {
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Simple Calculator</h1>
+    <br>
+    <br>
+    Enter input a: <input type="text" id="a">
+    <br>
+    <br>
+    Enter input b: <input type="text" id="b">
+    <br>
+    <br>
+    <h2>Click on the operation that need to be performed</h2>
+    <button class="btn" id="b1">Add (+)</button>
+    <button class="btn" id="b2">Sub (-)</button>
+    <button class="btn" id="b3">Mul (<sub>*</sub>)</button>
+    <button class="btn" id="b4">Div (/)</button>
+
+    <h2 id="result"><i></i></h2>
+
+    <script>
+        let a = document.querySelector('#a');
+        let b = document.querySelector('#b');
+        let res = 0;
+
+        let btn1 = document.querySelector('#b1');
+        let btn2 = document.querySelector('#b2');
+        let btn3 = document.querySelector('#b3');
+        let btn4 = document.querySelector('#b4');
+
+        let h2 = document.querySelector('#result');
+
+        btn1.addEventListener('click', () => {
+            let num1 = Number(a.value);
+            let num2 = Number(b.value);
+            res = num1+num2;
+            h2.innerHTML = 'Result: '+res;
+        });
+        btn2.addEventListener('click', () => {
+            let num1 = Number(a.value);
+            let num2 = Number(b.value);
+            res = num1-num2;
+            h2.innerHTML = 'Result: '+res;
+        });
+        btn3.addEventListener('click', () => {
+            let num1 = Number(a.value);
+            let num2 = Number(b.value);
+            res = num1*num2;
+            h2.innerHTML = 'Result: '+res;
+        });
+        btn4.addEventListener('click', () => {
+            let num1 = Number(a.value);
+            let num2 = Number(b.value);
+            res = num1/num2;
+            h2.innerHTML = 'Result: '+res;
+        });
+
+    </script>
+</body>
+</html>

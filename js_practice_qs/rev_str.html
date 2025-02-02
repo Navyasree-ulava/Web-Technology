@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a String</title>
+    <style>
+        button {
+            border: 2px solid black;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input {
+            border: 2px solid black;
+            padding: 5px;
+            width: 250px;
+        }
+        h2 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Reverse a String</h1>
+    
+    <label>Enter a string:</label>
+    <input type="text" id="stringInput" placeholder="Example: Hello World">
+    
+    <button id="btn">Reverse String</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        let btn = document.querySelector('#btn');
+
+        btn.addEventListener('click', () => {
+            let inputStr = document.querySelector('#stringInput').value.trim();
+            
+            if (!inputStr) {
+                document.querySelector('#result').innerHTML = `<span style="color:red">Please enter a valid string!</span>`;
+                return;
+            }
+
+            let reversedStr = inputStr.split('').reverse().join('');
+
+            document.querySelector('#result').innerHTML = `Reversed String: <b>${reversedStr}</b>`;
+        });
+
+    </script>
+
+</body>
+</html>
